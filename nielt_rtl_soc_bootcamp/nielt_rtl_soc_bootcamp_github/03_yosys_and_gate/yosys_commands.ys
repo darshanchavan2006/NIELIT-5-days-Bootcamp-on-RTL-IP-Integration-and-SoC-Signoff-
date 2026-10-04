@@ -1,0 +1,21 @@
+# Yosys synthesis script for a 2-input AND gate
+
+read_verilog and_gate.v
+
+# Select the RTL module
+hierarchy -top and_gate
+
+# Convert/process RTL logic
+proc
+
+# Basic optimization
+opt
+
+# Print statistics
+stat
+
+# Generate a Graphviz representation
+show -format dot -prefix and_gate_netlist
+
+# Write synthesized Verilog
+write_verilog -noattr and_gate_synth.v
